@@ -1,6 +1,6 @@
 # NBFCCurveEditor
 
-A small helper tool for editing NitroSense/NoteBook Fan Control (NBFC) fan-curve profiles for the Acer Nitro AN515 series. It consists of:
+A small helper tool for editing NoteBook Fan Control (NBFC) / [NBFC-Linux](https://github.com/nbfc-linux/nbfc-linux) fan-curve profiles. It consists of:
 
 - A browser-based editor (`index.html`, `app.js`, `styles.css`) that lets you import, tweak, and export NBFC JSON configs.
 - A lightweight Express helper server (`server.js`) that accepts a JSON profile and applies it via the bundled `apply_nbfc_curve.sh` script.
@@ -11,7 +11,7 @@ A small helper tool for editing NitroSense/NoteBook Fan Control (NBFC) fan-curve
 
 1. **Node.js 18+** (older versions with native `fetch` support for the client are fine, but the helper server expects modern syntax).
 2. **npm** (bundled with Node) for installing dependencies.
-3. **NBFC (NoteBook Fan Control)** installed and working on your machine. The helper script calls `nbfc` via `sudo`.
+3. **NBFC-Linux** (NoteBook FanControl port for Linux) installed and working on your machine. The helper script calls `nbfc` via `sudo`.
 4. `bash`, `mktemp`, and standard GNU userland utilities (already present on most Linux distributions).
 
 ## Installation
@@ -93,5 +93,5 @@ Because of the privileged operations, the script prompts for your sudo password.
 ## Contributing / extending
 
 - The front-end uses vanilla JS and custom UI helpers stored in `app.js`. Consider splitting into modules if it grows larger.
-- To support another laptop model, load that model's NBFC JSON profile and tweak the UI copy (e.g., page title) accordingly.
+- To support another laptop model, load that model's NBFC/nbfc-linux JSON profile and tweak the UI copy (e.g., page title) accordingly.
 - Pull requests should include clear instructions for reproducing changes and any additional prerequisites.
