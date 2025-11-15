@@ -1,0 +1,4 @@
+{
+  "watch": ["server.js", "apply_nbfc_curve.sh"],
+  "exec": "node server.js"
+}

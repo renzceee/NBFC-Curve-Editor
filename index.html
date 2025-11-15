@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nitro AN515 Fan Curve Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">NBFCCurveEditor</p>
+        <h1>Acer Nitro AN515 Fan Curve Editor</h1>
+        <p class="subtitle">
+          Load an NBFC fan-curve JSON (or use the bundled profile) to inspect,
+          tweak, and export custom curves.
+        </p>
+      </div>
+      <div class="header-actions">
+        <label class="toggle-advanced">
+          <input id="advancedToggle" type="checkbox" />
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="toggle-label">Advanced settings</span>
+        </label>
+        <label class="file-input">
+          <input id="filePicker" type="file" accept="application/json" />
+          <span>Load JSON…</span>
+        </label>
+        <button id="downloadJson" class="primary" disabled>
+          Download changes
+        </button>
+        <button id="applyConfig" class="primary" disabled>
+          Apply curve
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="statusPanel" class="status-panel">Load an NBFC fan curve to edit.</section>
+
+      <section class="card" id="generalSection" data-advanced="true">
+        <div class="section-heading">
+          <div>
+            <h2>General configuration</h2>
+            <p>Edit notebook metadata, temperature thresholds, and EC settings.</p>
+          </div>
+        </div>
+        <div id="generalForm" class="form-grid"></div>
+      </section>
+
+      <section class="card" id="fanSection">
+        <div class="section-heading">
+          <div>
+            <h2>Fan configurations</h2>
+            <p>Adjust register values and temperature thresholds for each fan.</p>
+          </div>
+        </div>
+        <div id="fanCards" class="fan-grid"></div>
+      </section>
+
+      <section class="card" id="registerSection" data-advanced="true">
+        <div class="section-heading">
+          <div>
+            <h2>Register write configurations</h2>
+            <p>Control EC writes performed during initialization/reset.</p>
+          </div>
+          <button id="addRegisterEntry" class="ghost">Add entry</button>
+        </div>
+        <div id="registerList" class="register-list"></div>
+      </section>
+    </main>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

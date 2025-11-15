@@ -1,0 +1,19 @@
+{
+  "name": "nbfc-curve-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Helper server for NBFC curve apply",
+  "scripts": {
+    "server": "nodemon",
+    "client": "live-server --no-browser --port=5500 --entry-file=index.html",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.4"
+  }
+}
