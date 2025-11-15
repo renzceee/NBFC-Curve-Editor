@@ -28,11 +28,12 @@ This installs the Express server along with development helpers (`nodemon`, `liv
 ### 1. Start the Express helper server only
 
 ```bash
-npm run server
+sudo npm run server
 ```
 
 - Runs `nodemon`, which watches `server.js` and `apply_nbfc_curve.sh`.
 - Exposes `POST /apply` on `http://localhost:3000` and forwards payloads to the shell script.
+- `sudo` ensures the helper can restart NBFC and copy configs without repeatedly prompting for your password.
 
 ### 2. Start the static client only
 
@@ -46,11 +47,12 @@ npm run client
 ### 3. Run both client and server together (recommended during development)
 
 ```bash
-npm run dev
+sudo npm run dev
 ```
 
-- Uses `concurrently` to run `npm run server` and `npm run client` in parallel.
+- Uses `concurrently` to run `npm run server` (as root) and `npm run client` in parallel.
 - Visit `http://127.0.0.1:5500` and load an NBFC JSON to begin editing.
+- If you prefer to avoid running the client with elevated privileges, start two terminals: run `sudo npm run server` in one and `npm run client` in the other.
 
 ## Applying a curve manually
 
